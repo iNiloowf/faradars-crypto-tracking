@@ -8,7 +8,7 @@ const AboutusPage = () => {
           <h3>About us</h3>
         </div>
       </div>
-      <div className="row align-item-center p-2">
+      <div className="row align-items-center p-2">
         <div className="col-md-6">
           <img src={aboutusImg} alt="About us" className="img-fluid" />
         </div>

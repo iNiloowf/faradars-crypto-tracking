@@ -11,3 +11,7 @@ body{
   min-height: calc(100vh - 56px - 40px);
   
 }
+.ContactusImg{
+  height: 350px;
+  width: 350px;
+}
