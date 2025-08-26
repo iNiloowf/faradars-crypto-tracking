@@ -8,13 +8,13 @@ const NavbarComponent = () => {
     btnToggleRef.current.click();
   }
   return (
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-     <Link class="navbar-brand" href="#">
+   <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+     <Link className="navbar-brand" href="#">
      <FaBitcoin className="navbar-logo"/>
      Crypto Tracking
      </Link>
-    <button class="navbar-toggler" 
+    <button className="navbar-toggler" 
      type="button"
      data-bs-toggle="collapse"
      data-bs-target="#navbarNav"
@@ -23,21 +23,21 @@ const NavbarComponent = () => {
      aria-label="Toggle navigation"
      ref={btnToggleRef} >
       
-      <span class="navbar-toggler-icon"></span>
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-           <li class="nav-item" onClick={toggleMenu}>
-          <Link class="nav-link" to="/">Home</Link>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+           <li className="nav-item" onClick={toggleMenu}>
+          <Link className="nav-link" to="/">Home</Link>
         </li>
-        <li class="nav-item" onClick={toggleMenu}>
-          <Link class="nav-link" to="/faq">FAQ</Link>
+        <li className="nav-item" onClick={toggleMenu}>
+          <Link className="nav-link" to="/faq">FAQ</Link>
         </li>
-        <li class="nav-item" onClick={toggleMenu}>
-          <Link class="nav-link" to="/aboutus">About Us</Link>
+        <li className="nav-item" onClick={toggleMenu}>
+          <Link className="nav-link" to="/aboutus">About Us</Link>
         </li>
-      <li class="nav-item" onClick={toggleMenu}>
-          <Link class="nav-link" to="/contactus">Contact Us</Link>
+      <li className="nav-item" onClick={toggleMenu}>
+          <Link className="nav-link" to="/contactus">Contact Us</Link>
         </li>
        
       </ul>
