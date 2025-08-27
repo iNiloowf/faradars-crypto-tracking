@@ -5,13 +5,21 @@ import FAQPage from './pages/FAQ.page.jsx';
 import {Routes, Route } from 'react-router-dom';
 import AboutusPage from './pages/Aboutus.page.jsx';
 import ContactusPage from './pages/Contactus.page.jsx';
+import React from 'react';
+
+
+
 function App() {
+  
   return (
     <div>
       {/* Navbar */}
       <NavbarComponent></NavbarComponent>
     
       {/* Wapper */}
+     
+
+
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<HomePage />} />
