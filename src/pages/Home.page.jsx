@@ -25,6 +25,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [timer, setTimer] = useState(30); // شمارنده 30 ثانیه
 
+  // Fetch coins هر 30 ثانیه
   useEffect(() => {
     const fetchCoins = async () => {
       try {
@@ -42,7 +43,7 @@ const Home = () => {
         );
         setCoins(response.data);
         setLoading(false);
-        setTimer(30); // بعد از آپدیت، شمارنده رو ریست کن
+        setTimer(30); // ریست کردن شمارنده بعد از آپدیت
         console.log("Coins updated at", new Date().toLocaleTimeString());
       } catch (error) {
         console.error("Error fetching coins:", error);
@@ -50,13 +51,14 @@ const Home = () => {
     };
 
     fetchCoins(); // اولین بار اجرا
-    const fetchInterval = setInterval(fetchCoins, 30000); // آپدیت هر ۳۰ ثانیه
+    const fetchInterval = setInterval(fetchCoins, 30000); // هر 30 ثانیه
     return () => clearInterval(fetchInterval);
   }, []);
 
+  // شمارنده ثانیه
   useEffect(() => {
     const countdown = setInterval(() => {
-      setTimer((prev) => (prev > 0 ? prev - 1 : 30)); // هر ثانیه کم می‌کنه و بعد از رسیدن به 0 ریست می‌کنه
+      setTimer((prev) => (prev > 0 ? prev - 1 : 30));
     }, 1000);
 
     return () => clearInterval(countdown);
@@ -76,9 +78,9 @@ const Home = () => {
               <tr>
                 <th>#</th>
                 <th>Coin</th>
-                <th>Symbol</th>
+                <th className="d-none d-lg-table-cell">Symbol</th>
                 <th>Price (USD)</th>
-                <th>Market Cap</th>
+                <th className="d-none d-lg-table-cell">Market Cap</th>
                 <th>24h Change</th>
               </tr>
             </thead>
@@ -94,15 +96,13 @@ const Home = () => {
                     />
                     {coin.name}
                   </td>
-                  <td>{coin.symbol.toUpperCase()}</td>
+                  <td className="d-none d-lg-table-cell">{coin.symbol.toUpperCase()}</td>
                   <td>${coin.current_price.toLocaleString()}</td>
-                  <td>${coin.market_cap.toLocaleString()}</td>
+                  <td className="d-none d-lg-table-cell">${coin.market_cap.toLocaleString()}</td>
                   <td
                     style={{
                       color:
-                        coin.price_change_percentage_24h >= 0
-                          ? "green"
-                          : "red",
+                        coin.price_change_percentage_24h >= 0 ? "green" : "red",
                     }}
                   >
                     {coin.price_change_percentage_24h.toFixed(2)}%
